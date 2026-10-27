@@ -18,5 +18,6 @@ module.exports = {
         alias: { '@': './src' },
       },
     ],
+    ['react-native-unistyles/plugin', { root: 'src' }],
   ],
 };
