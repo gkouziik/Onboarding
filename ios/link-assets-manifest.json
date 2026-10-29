@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/AnytimeSans-Bold2.ttf",
+      "sha1": "6743bc71bdc9b3c61cf027b19ac19f8635cc328a"
+    },
+    {
+      "path": "src/assets/fonts/AnytimeSans-BoldItalic.otf",
+      "sha1": "fc5a10d897d313c2bb4fcea1bdf1f79eb3462e5b"
+    },
+    {
+      "path": "src/assets/fonts/AnytimeSans-Light.otf",
+      "sha1": "1a24133b3d5834436515eec47cb90b66fd48a4c7"
+    },
+    {
+      "path": "src/assets/fonts/AnytimeSans-LightItalic.otf",
+      "sha1": "73e8c18b8f9a27aaa0758d9543ebd23fd1ec8500"
+    },
+    {
+      "path": "src/assets/fonts/AnytimeSans-Regular2.ttf",
+      "sha1": "badbfb273843d4ff0142f62035a35f4064bf7787"
+    },
+    {
+      "path": "src/assets/fonts/AnytimeSans-RegularItalic.otf",
+      "sha1": "de88084719af58f94562ea388af7febc929c5d30"
+    }
+  ]
+}
