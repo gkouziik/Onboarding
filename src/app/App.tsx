@@ -24,7 +24,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.bg,
     paddingTop: rt.insets.top,
   },
   text: { color: theme.colors.text, fontSize: 20 },
