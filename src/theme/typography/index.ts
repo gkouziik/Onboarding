@@ -63,3 +63,8 @@ export const typography = {
     letterSpacing: letterSpacing['0_25'],
   },
 };
+
+export type TypographyVariant = Exclude<
+  keyof typeof typography,
+  'fonts' | 'fontSizes' | 'lineHeight' | 'letterSpacing'
+>;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react-native';
-import { SvgResolver } from '@/components/SVGResolver';
+
+import { SvgResolver } from '@/components/SVGResolver/index.tsx';
 
 describe('SVGResolver', () => {
   it('uses a numeric size for width and height', async () => {

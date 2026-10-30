@@ -1,7 +1,8 @@
 import { useUnistyles } from 'react-native-unistyles';
 
 import { ThemeColors } from '@/theme/theme.ts';
-import { IconName, icons } from '@/components/SVGResolver/icons.ts';
+import { icons } from '@/components/SVGResolver/icons.ts';
+import { type IconName } from '@/components/SVGResolver/types.ts';
 
 type ThemeColorKey = keyof ThemeColors;
 type IconSizeKey = keyof ReturnType<

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { styles } from '@/features/CountryDetails/styles.ts';
+import { styles } from '@/features/countryDetails/styles.ts';
 
 export function CountryDetails() {
   return (

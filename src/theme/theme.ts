@@ -20,6 +20,8 @@ const shared = {
 // TODO extend the type , what happens if dark or warm has extra keys , TS will fail
 export type ThemeColors = typeof coolColors;
 
+export type ColorsKeys = keyof typeof coolColors;
+
 /**
  * Palettes of different kind of colors based on the Themes
  */
