@@ -5,7 +5,7 @@ import {
 import { useUnistyles } from 'react-native-unistyles';
 
 import { RootStackParamList } from '@/navigation/RootNavigator/types.ts';
-import { CountryDetails } from '@/features/CountryDetails';
+import { CountryDetails } from '@/features/countryDetails';
 import { TabNavigator } from '@/navigation/BottomTabsNavigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
