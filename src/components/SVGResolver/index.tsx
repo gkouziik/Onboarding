@@ -48,6 +48,11 @@ export function SvgResolver({
   height,
   testID,
 }: Props) {
+  /**
+   * A leaf component with no children, wrapping a third-party view. react-native-svg counts as third-party here,
+   * because Unistyles can’t update its color prop through a stylesheet.
+   * Its own small component, not a screen or root component, so a theme change re-renders only the icon itself.
+   */
   const { theme } = useUnistyles();
   const Svg = icons[name];
 
