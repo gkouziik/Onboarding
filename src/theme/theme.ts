@@ -7,6 +7,7 @@ import { radius } from '@/theme/sizes/radius';
 import { coolColors } from '@/theme/colors/coolColors.ts';
 import { warmColors } from '@/theme/colors/warmColors.ts';
 import { darkColors } from '@/theme/colors/darkColors.ts';
+import { flagSize } from '@/theme/sizes/flagSizes';
 
 /**
  * Shared elements between themes
@@ -14,7 +15,7 @@ import { darkColors } from '@/theme/colors/darkColors.ts';
 const shared = {
   typography,
   spaces: { gap, padding },
-  sizes: { borderWidth, iconSize, radius },
+  sizes: { borderWidth, iconSize, radius, flagSize },
 } as const;
 
 // TODO extend the type , what happens if dark or warm has extra keys , TS will fail

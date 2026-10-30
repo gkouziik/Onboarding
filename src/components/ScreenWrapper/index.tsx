@@ -21,7 +21,7 @@ type Props = {
 /**
  *  Root wrapper for every screen: themed background and optional safe-area padding.
  */
-export function Screen({ children, scroll = false, edges = [] }: Props) {
+export function ScreenWrapper({ children, scroll = false, edges = [] }: Props) {
   const top = edges.includes('top');
   const bottom = edges.includes('bottom');
 
