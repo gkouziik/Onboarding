@@ -5,29 +5,18 @@
  * @format
  */
 
-import { Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StyleSheet } from 'react-native-unistyles';
+import { NavigationContainer } from '@react-navigation/native';
+import { RootNavigator } from '@/navigation/RootNavigator';
 
 function App() {
   return (
     <SafeAreaProvider>
-      <View style={styles.container}>
-        <Text style={styles.text}>Text is OK</Text>
-      </View>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create((theme, rt) => ({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.bg,
-    paddingTop: rt.insets.top,
-  },
-  text: { color: theme.colors.text, fontSize: 20 },
-}));
 
 export default App;
