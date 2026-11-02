@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { TextInputProps, View } from 'react-native';
 
 import { SvgResolver } from '@/components/SVGResolver';
@@ -14,10 +14,13 @@ export function SearchInput({
   onChangeText,
   placeholder = 'Search',
   testID,
+  style,
 }: TextInputProps) {
   const onIconButtonPress = useCallback(() => {
     onChangeText && onChangeText('');
   }, [onChangeText]);
+
+  const searchInputStyles = useMemo(() => [styles.input, style], [style]);
 
   return (
     <View style={styles.container}>
@@ -29,7 +32,7 @@ export function SearchInput({
         autoCorrect={false}
         autoCapitalize="none"
         returnKeyType="search"
-        style={styles.input}
+        style={searchInputStyles}
         testID={testID}
       />
       {value && value.length > 0 ? (

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,12 +9,24 @@ import { useGetAllCountriesQuery } from '@/services/api/countries/countriesApi.t
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { LoadingView } from '@/components/LoadingView';
 import { ErrorView } from '@/components/ErrorView';
+import { EmptyView } from '@/components/EmptyView';
+import { SearchInput } from '@/features/home/components/SearchInput';
+import { styles } from '@/features/home/styles.ts';
 
 const keyExtractor = (item: CountrySummary) => `${item.code}-${item.name}`;
 
 export function Home() {
   const navigation = useNavigation();
   const { data, isLoading, isError, refetch } = useGetAllCountriesQuery();
+  const [search, setSearch] = useState('');
+
+  const countries = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    if (!data || !query) {
+      return data;
+    }
+    return data.filter(country => country.name.toLowerCase().includes(query));
+  }, [data, search]);
 
   const handleCountryPress = useCallback(
     (code: string) => navigation.navigate('CountryDetail', { code }),
@@ -46,11 +58,22 @@ export function Home() {
 
   return (
     <ScreenWrapper edges={['top']}>
+      <SearchInput
+        value={search}
+        onChangeText={setSearch}
+        placeholder="Search countries"
+        style={styles.searchContainer}
+      />
       <FlatList
-        data={data}
+        data={countries}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         ItemSeparatorComponent={Divider}
+        ListEmptyComponent={
+          <EmptyView title="No countries found" message="Try another name." />
+        }
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
       />
     </ScreenWrapper>
   );

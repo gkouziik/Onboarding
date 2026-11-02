@@ -35,7 +35,6 @@ export function FlagImage({ uri, emoji = '', size = 'sm' }: FlagImageProps) {
       source={{ uri }}
       onError={() => setFailed(true)}
       resizeMode="cover"
-      accessibilityIgnoresInvertColors
       style={styles.flag}
       testID="flag-image"
     />
