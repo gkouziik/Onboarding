@@ -1,44 +1,29 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { FlatList, ListRenderItemInfo } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useRef, useState } from 'react';
 
-import { CountrySummary } from '@/models/countries.ts';
-import CountryListItem from '@/components/CountryListItem';
-import { Divider } from '@/components/Divider';
 import { useGetAllCountriesQuery } from '@/services/api/countries/countriesApi.ts';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { LoadingView } from '@/components/LoadingView';
 import { ErrorView } from '@/components/ErrorView';
-import { EmptyView } from '@/components/EmptyView';
 import { SearchInput } from '@/features/home/components/SearchInput';
-import { styles } from '@/features/home/styles.ts';
-
-const keyExtractor = (item: CountrySummary) => `${item.code}-${item.name}`;
+import { ContinentFilter } from '@/features/home/types.ts';
+import ContinentTabs from '@/features/home/components/ContinentTabs';
+import CountryList from '@/features/home/components/CountryList';
+import { FlatList } from 'react-native';
+import { CountrySummary } from '@/models/countries.ts';
+import { useFilterCountries } from '@/features/home/hooks/useFilterCountries.ts';
 
 export function Home() {
-  const navigation = useNavigation();
   const { data, isLoading, isError, refetch } = useGetAllCountriesQuery();
   const [search, setSearch] = useState('');
+  const [continent, setContinent] = useState<ContinentFilter>('All');
+  const listRef = useRef<FlatList<CountrySummary>>(null);
 
-  const countries = useMemo(() => {
-    const query = search.trim().toLowerCase();
-    if (!data || !query) {
-      return data;
-    }
-    return data.filter(country => country.name.toLowerCase().includes(query));
-  }, [data, search]);
+  const countries = useFilterCountries({ data, continent, search });
 
-  const handleCountryPress = useCallback(
-    (code: string) => navigation.navigate('CountryDetail', { code }),
-    [navigation],
-  );
-
-  const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<CountrySummary>) => (
-      <CountryListItem country={item} onPress={handleCountryPress} />
-    ),
-    [handleCountryPress],
-  );
+  const handleContinentSelect = useCallback((tab: ContinentFilter) => {
+    setContinent(tab);
+    listRef.current?.scrollToOffset({ offset: 0, animated: true });
+  }, []);
 
   if (isLoading) {
     return (
@@ -62,19 +47,11 @@ export function Home() {
         value={search}
         onChangeText={setSearch}
         placeholder="Search countries"
-        style={styles.searchContainer}
       />
-      <FlatList
-        data={countries}
-        keyExtractor={keyExtractor}
-        renderItem={renderItem}
-        ItemSeparatorComponent={Divider}
-        ListEmptyComponent={
-          <EmptyView title="No countries found" message="Try another name." />
-        }
-        keyboardShouldPersistTaps="handled"
-        keyboardDismissMode="on-drag"
-      />
+
+      <ContinentTabs onSelect={handleContinentSelect} selected={continent} />
+
+      <CountryList countries={countries} ref={listRef} />
     </ScreenWrapper>
   );
 }
