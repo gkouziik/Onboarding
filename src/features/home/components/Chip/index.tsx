@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Pressable, PressableProps } from 'react-native';
 
 import { AppText } from '@/components/AppText';
