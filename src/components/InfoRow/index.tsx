@@ -5,17 +5,25 @@ import { styles } from '@/components/InfoRow/styles.ts';
 import { AppText } from '@/components/AppText';
 import { formatInfoValue } from '@/components/InfoRow/utils.ts';
 import { Value } from '@/components/InfoRow/types.ts';
+import { TypographyVariant } from '@/theme/typography';
 
 interface InfoRowProps {
   label: string;
   value: Value;
+  labelVariant?: TypographyVariant;
+  valueVariant?: TypographyVariant;
 }
 
 /**
  * "Label - value" line.
  * Used for Detail fields (capital, population, languages…).
  * */
-function InfoRow({ label, value }: InfoRowProps) {
+function InfoRow({
+  label,
+  value,
+  labelVariant = 'p2',
+  valueVariant = 'p1',
+}: InfoRowProps) {
   const text = useMemo(() => formatInfoValue(value), [value]);
 
   return (
@@ -24,10 +32,10 @@ function InfoRow({ label, value }: InfoRowProps) {
       accessible
       accessibilityLabel={`${label}: ${text}`}
     >
-      <AppText variant="p2" color="text2">
+      <AppText variant={labelVariant} color="text2">
         {label}
       </AppText>
-      <AppText variant="p1" style={styles.value}>
+      <AppText variant={valueVariant} style={styles.value}>
         {text}
       </AppText>
     </View>

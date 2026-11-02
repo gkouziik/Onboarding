@@ -120,6 +120,16 @@ describe('Home', () => {
     });
   });
 
+  describe('Stats panel', () => {
+    it('Should collapse panel when panel pressable is pressed', async () => {
+      await renderLoadedHome();
+      expect(screen.getByText('Top 5 by population')).toBeOnTheScreen();
+      const expandButton = screen.getByTestId('stats-button');
+      await fireEvent.press(expandButton);
+      expect(screen.queryByText('Top 5 by population')).not.toBeOnTheScreen();
+    });
+  });
+
   describe('continent tabs', () => {
     it('filters by continent', async () => {
       await renderLoadedHome();

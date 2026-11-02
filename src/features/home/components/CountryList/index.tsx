@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, useCallback } from 'react';
+import React, { forwardRef, memo, ReactElement, useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,12 +9,13 @@ import { CountrySummary } from '@/models/countries.ts';
 
 type Props = {
   countries: CountrySummary[];
+  header?: ReactElement;
 };
 
 const keyExtractor = (item: CountrySummary) => `${item.code}-${item.name}`;
 
 const CountryList = forwardRef<FlatList<CountrySummary>, Props>(
-  ({ countries }, ref) => {
+  ({ countries, header }, ref) => {
     const navigation = useNavigation();
 
     const handleCountryPress = useCallback(
@@ -37,6 +38,7 @@ const CountryList = forwardRef<FlatList<CountrySummary>, Props>(
         renderItem={renderItem}
         ItemSeparatorComponent={Divider}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={header}
         ListEmptyComponent={
           <EmptyView
             title="No countries found"

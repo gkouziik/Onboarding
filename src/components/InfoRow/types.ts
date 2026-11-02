@@ -1,1 +1,1 @@
-export type Value = string | string[] | null | undefined;
+export type Value = string | string[] | null | undefined | number;

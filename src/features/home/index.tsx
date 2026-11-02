@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 
 import { useGetAllCountriesQuery } from '@/services/api/countries/countriesApi.ts';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
@@ -11,6 +11,8 @@ import CountryList from '@/features/home/components/CountryList';
 import { FlatList } from 'react-native';
 import { CountrySummary } from '@/models/countries.ts';
 import { useFilterCountries } from '@/features/home/hooks/useFilterCountries.ts';
+import { computeStats } from '@/features/home/utils/computeStats.ts';
+import StatsPanel from '@/features/home/components/StatsPanel';
 
 export function Home() {
   const { data, isLoading, isError, refetch } = useGetAllCountriesQuery();
@@ -19,6 +21,7 @@ export function Home() {
   const listRef = useRef<FlatList<CountrySummary>>(null);
 
   const countries = useFilterCountries({ data, continent, search });
+  const stats = useMemo(() => computeStats(data ?? []), [data]);
 
   const handleContinentSelect = useCallback((tab: ContinentFilter) => {
     setContinent(tab);
@@ -51,7 +54,11 @@ export function Home() {
 
       <ContinentTabs onSelect={handleContinentSelect} selected={continent} />
 
-      <CountryList countries={countries} ref={listRef} />
+      <CountryList
+        countries={countries}
+        ref={listRef}
+        header={<StatsPanel stats={stats} />}
+      />
     </ScreenWrapper>
   );
 }
