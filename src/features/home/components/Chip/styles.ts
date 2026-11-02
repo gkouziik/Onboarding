@@ -10,8 +10,8 @@ export const styles = StyleSheet.create(theme => ({
     variants: {
       selected: {
         true: {
-          backgroundColor: theme.colors.text2,
-          borderColor: theme.colors.border,
+          backgroundColor: theme.colors.surface2,
+          borderColor: theme.colors.borderStrong,
         },
         false: {
           backgroundColor: theme.colors.surface,
