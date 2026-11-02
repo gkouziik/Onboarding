@@ -17,7 +17,7 @@ interface LoadingViewProps {
 export function LoadingView({ label = 'Loading...' }: LoadingViewProps) {
   return (
     <View style={styles.container}>
-      <ThemedActivityIndicator size="large" />
+      <ThemedActivityIndicator size="large" testID="loading-indicator" />
       <AppText color="text2">{label}</AppText>
     </View>
   );

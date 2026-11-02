@@ -34,6 +34,7 @@ function ContinentTabs({ selected, onSelect }: Props) {
     >
       {CONTINENT_TABS.map(tab => (
         <Chip
+          testID={tab}
           key={tab}
           label={tab}
           selected={tab === selected}

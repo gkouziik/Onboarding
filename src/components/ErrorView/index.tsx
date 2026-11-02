@@ -36,7 +36,7 @@ export function ErrorView({
       <AppText color="text2" style={styles.center}>
         {message}
       </AppText>
-      <Button label="Try again" onPress={onRetry} />
+      <Button label="Try again" onPress={onRetry} testID="retry" />
     </View>
   );
 }

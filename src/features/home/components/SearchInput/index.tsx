@@ -38,9 +38,9 @@ export function SearchInput({
       {value && value.length > 0 ? (
         <IconButton
           icon="close"
+          testID="clear-search"
           size="20"
           color="text2"
-          accessibilityLabel="Clear search"
           onPress={onIconButtonPress}
         />
       ) : null}
