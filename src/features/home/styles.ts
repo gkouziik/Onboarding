@@ -7,6 +7,7 @@ export const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     gap: 16,
     backgroundColor: theme.colors.bg,
+    paddingHorizontal: 20,
   },
   text: { ...theme.typography.p1, color: theme.colors.text },
   button: {
@@ -14,5 +15,8 @@ export const styles = StyleSheet.create(theme => ({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: theme.colors.border,
+  },
+  searchContainer: {
+    marginLeft: 16,
   },
 }));
