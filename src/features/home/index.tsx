@@ -14,13 +14,15 @@ import { computeStats } from '@/features/home/utils/computeStats.ts';
 import StatsPanel from '@/features/home/components/StatsPanel';
 import SortToggle from '@/features/home/components/SortToggle';
 import Header from '@/features/home/components/Header';
+import { PAGE_SIZE } from '@/features/home/constants.ts';
+import { usePagination } from '@/features/home/hooks/usePagination.ts';
 
 export function Home() {
-  const { data, isLoading, isError, refetch } = useGetAllCountriesQuery();
+  const { data, isLoading, isError, refetch, isFetching } =
+    useGetAllCountriesQuery();
   const [search, setSearch] = useState('');
   const [continent, setContinent] = useState<ContinentFilter>('All');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
-
   const listRef = useRef<FlatList<CountrySummary>>(null);
 
   const countries = useFilterCountries({
@@ -31,15 +33,39 @@ export function Home() {
   });
   const stats = useMemo(() => computeStats(data ?? []), [data]);
 
-  const handleContinentSelect = useCallback((tab: ContinentFilter) => {
-    setContinent(tab);
-    listRef.current?.scrollToOffset({ offset: 0, animated: true });
-  }, []);
+  const {
+    visibleItems: visibleCountries,
+    loadMore,
+    reset,
+  } = usePagination(countries, PAGE_SIZE);
+
+  const handleSearchChange = useCallback(
+    (text: string) => {
+      setSearch(text);
+      reset();
+    },
+    [reset],
+  );
+
+  const handleRefresh = useCallback(() => {
+    reset();
+    refetch();
+  }, [refetch, reset]);
+
+  const handleContinentSelect = useCallback(
+    (tab: ContinentFilter) => {
+      setContinent(tab);
+      reset();
+      listRef.current?.scrollToOffset({ offset: 0, animated: true });
+    },
+    [reset],
+  );
 
   const handleSortToggle = useCallback(() => {
     setSortDirection(current => (current === 'desc' ? 'asc' : 'desc'));
+    reset();
     listRef.current?.scrollToOffset({ offset: 0, animated: true });
-  }, []);
+  }, [reset]);
 
   if (isLoading) {
     return (
@@ -59,14 +85,17 @@ export function Home() {
 
   return (
     <ScreenWrapper edges={['top']}>
-      <Header search={search} onSearchChange={setSearch} />
+      <Header search={search} onSearchChange={handleSearchChange} />
 
       <ContinentTabs onSelect={handleContinentSelect} selected={continent} />
       <SortToggle direction={sortDirection} onToggle={handleSortToggle} />
 
       <CountryList
-        countries={countries}
+        countries={visibleCountries}
         ref={listRef}
+        refreshing={isFetching && !isLoading}
+        onRefresh={handleRefresh}
+        onEndReached={loadMore}
         header={<StatsPanel stats={stats} />}
       />
     </ScreenWrapper>
