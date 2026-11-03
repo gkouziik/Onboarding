@@ -19,5 +19,6 @@ module.exports = {
       },
     ],
     ['react-native-unistyles/plugin', { root: 'src' }],
+    'react-native-worklets/plugin',
   ],
 };
