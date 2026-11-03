@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native-unistyles';
 
 export const styles = StyleSheet.create(theme => ({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.bg,
+  title: {
+    paddingHorizontal: theme.spaces.padding['16'],
+    paddingVertical: theme.spaces.padding['12'],
   },
-  text: { ...theme.typography.p1, color: theme.colors.text },
+  emptyContent: {
+    flexGrow: 1,
+  },
 }));
