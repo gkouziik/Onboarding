@@ -49,7 +49,6 @@ export const antarctica: Country = {
   codes: { alpha_3: 'ATA' },
 };
 
-/** Generates `count` minimal countries for paging tests. */
 export const makeCountries = (count: number, start = 0): Country[] =>
   Array.from({ length: count }, (_, i) => ({
     uuid: `uuid-${start + i}`,
