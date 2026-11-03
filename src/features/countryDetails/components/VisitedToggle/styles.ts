@@ -1,0 +1,8 @@
+import { StyleSheet } from 'react-native-unistyles';
+
+export const styles = StyleSheet.create(_theme => ({
+  toggleButtonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));

@@ -6,6 +6,7 @@ import ChevronRight from '@/assets/svgs/chevron-right.svg';
 import Close from '@/assets/svgs/close.svg';
 import Search from '@/assets/svgs/search.svg';
 import Palette from '@/assets/svgs/palette.svg';
+import HeartOutline from '@/assets/svgs/heart-outline.svg';
 
 export const icons = {
   home: Home,
@@ -16,4 +17,5 @@ export const icons = {
   close: Close,
   search: Search,
   palette: Palette,
+  heartOutline: HeartOutline,
 } as const;

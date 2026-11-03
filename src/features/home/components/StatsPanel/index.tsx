@@ -8,8 +8,8 @@ import { Card } from '@/features/home/components/Card';
 import { styles } from '@/features/home/components/StatsPanel/styles.ts';
 import { CountryStats } from '@/features/home/utils/computeStats.ts';
 import { CONTINENTS } from '@/models/countries.ts';
-import { formatCompact } from '@/utils/formatNumber.ts';
 import { SvgResolver } from '@/components/SVGResolver';
+import { formatCompact } from '@/utils';
 
 type Props = {
   stats: CountryStats;
