@@ -1,7 +1,4 @@
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions,
-} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useUnistyles } from 'react-native-unistyles';
 
 import { RootStackParamList } from '@/navigation/RootNavigator/types.ts';
@@ -9,10 +6,6 @@ import { CountryDetails } from '@/features/countryDetails';
 import { TabNavigator } from '@/navigation/BottomTabsNavigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const rootStackOptions: NativeStackNavigationOptions = {
-  headerShown: false,
-};
 
 export function RootNavigator() {
   // according to documentation https://unistyl.es/v3/references/use-unistyles/
@@ -27,12 +20,12 @@ export function RootNavigator() {
       <Stack.Screen
         name="Tabs"
         component={TabNavigator}
-        options={rootStackOptions}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="CountryDetail"
         component={CountryDetails}
-        options={rootStackOptions}
+        options={{ headerShown: true, headerBackTitle: 'Back', title: '' }}
       />
     </Stack.Navigator>
   );
