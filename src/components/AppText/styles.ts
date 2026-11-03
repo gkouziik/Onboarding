@@ -5,6 +5,6 @@ import { ColorsKeys } from '@/theme/theme.ts';
 export const styles = StyleSheet.create(theme => ({
   text: (variant: TypographyVariant, color: ColorsKeys) => ({
     ...theme.typography[variant],
-    color: color,
+    color: theme.colors[color],
   }),
 }));

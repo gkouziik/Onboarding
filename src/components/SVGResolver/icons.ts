@@ -5,6 +5,7 @@ import Delete from '@/assets/svgs/delete.svg';
 import ChevronRight from '@/assets/svgs/chevron-right.svg';
 import Close from '@/assets/svgs/close.svg';
 import Search from '@/assets/svgs/search.svg';
+import Palette from '@/assets/svgs/palette.svg';
 
 export const icons = {
   home: Home,
@@ -14,4 +15,5 @@ export const icons = {
   chevronRight: ChevronRight,
   close: Close,
   search: Search,
+  palette: Palette,
 } as const;

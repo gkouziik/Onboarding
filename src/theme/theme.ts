@@ -9,20 +9,25 @@ import { warmColors } from '@/theme/colors/warmColors.ts';
 import { darkColors } from '@/theme/colors/darkColors.ts';
 import { flagSize } from '@/theme/sizes/flagSizes';
 
+export const touchTarget = {
+  min: 44,
+} as const;
+
 /**
  * Shared elements between themes
  */
 const shared = {
   typography,
   spaces: { gap, padding },
-  sizes: { borderWidth, iconSize, radius, flagSize },
+  sizes: { borderWidth, iconSize, radius, flagSize, touchTarget },
 } as const;
 
 // TODO extend the type , what happens if dark or warm has extra keys , TS will fail
 export type ThemeColors = typeof coolColors;
 
-export type ColorsKeys = keyof typeof coolColors;
-
+export type ColorsKeys = {
+  [K in keyof ThemeColors]: ThemeColors[K] extends string ? K : never;
+}[keyof ThemeColors];
 /**
  * Palettes of different kind of colors based on the Themes
  */

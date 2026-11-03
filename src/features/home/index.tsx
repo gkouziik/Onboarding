@@ -4,7 +4,6 @@ import { useGetAllCountriesQuery } from '@/services/api/countries/countriesApi.t
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { LoadingView } from '@/components/LoadingView';
 import { ErrorView } from '@/components/ErrorView';
-import { SearchInput } from '@/features/home/components/SearchInput';
 import { ContinentFilter, SortDirection } from '@/features/home/types.ts';
 import ContinentTabs from '@/features/home/components/ContinentTabs';
 import CountryList from '@/features/home/components/CountryList';
@@ -14,6 +13,7 @@ import { useFilterCountries } from '@/features/home/hooks/useFilterCountries.ts'
 import { computeStats } from '@/features/home/utils/computeStats.ts';
 import StatsPanel from '@/features/home/components/StatsPanel';
 import SortToggle from '@/features/home/components/SortToggle';
+import Header from '@/features/home/components/Header';
 
 export function Home() {
   const { data, isLoading, isError, refetch } = useGetAllCountriesQuery();
@@ -59,11 +59,7 @@ export function Home() {
 
   return (
     <ScreenWrapper edges={['top']}>
-      <SearchInput
-        value={search}
-        onChangeText={setSearch}
-        placeholder="Search countries"
-      />
+      <Header search={search} onSearchChange={setSearch} />
 
       <ContinentTabs onSelect={handleContinentSelect} selected={continent} />
       <SortToggle direction={sortDirection} onToggle={handleSortToggle} />
