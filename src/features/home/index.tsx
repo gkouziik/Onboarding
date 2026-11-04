@@ -5,17 +5,16 @@ import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { LoadingView } from '@/components/LoadingView';
 import { ErrorView } from '@/components/ErrorView';
 import { ContinentFilter, SortDirection } from '@/features/home/types.ts';
-import ContinentTabs from '@/features/home/components/ContinentTabs';
 import CountryList from '@/features/home/components/CountryList';
 import { FlatList } from 'react-native';
 import { CountrySummary } from '@/models/countries.ts';
 import { useFilterCountries } from '@/features/home/hooks/useFilterCountries.ts';
 import { useComputeStats } from '@/features/home/utils/computeStats.ts';
 import StatsPanel from '@/features/home/components/StatsPanel';
-import SortToggle from '@/features/home/components/SortToggle';
 import Header from '@/features/home/components/Header';
 import { PAGE_SIZE } from '@/features/home/constants.ts';
 import { usePagination } from '@/features/home/hooks/usePagination.ts';
+import FiltersBar from '@/features/home/components/FiltersBar';
 
 /**
  * [] === [] false: two different objects
@@ -93,8 +92,12 @@ export function Home() {
     <ScreenWrapper edges={['top']}>
       <Header search={search} onSearchChange={handleSearchChange} />
 
-      <ContinentTabs onSelect={handleContinentSelect} selected={continent} />
-      <SortToggle direction={sortDirection} onToggle={handleSortToggle} />
+      <FiltersBar
+        continent={continent}
+        onContinentSelect={handleContinentSelect}
+        sortDirection={sortDirection}
+        onSortToggle={handleSortToggle}
+      />
 
       <CountryList
         countries={visibleCountries}
