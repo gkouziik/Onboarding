@@ -7,7 +7,6 @@ export const styles = StyleSheet.create(theme => ({
     paddingHorizontal: theme.spaces.padding['12'],
     borderRadius: theme.sizes.radius['999'],
     borderWidth: 1,
-    marginBottom: 10,
     variants: {
       selected: {
         true: {

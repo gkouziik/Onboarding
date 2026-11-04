@@ -7,12 +7,14 @@ import { Home } from '@/features/home';
 import { Visited } from '@/features/visited';
 import { HomeTabIcon } from '@/navigation/BottomTabsNavigator/components/TabBarIcons/HomeTabIcon';
 import { VisitedTabIcon } from '@/navigation/BottomTabsNavigator/components/TabBarIcons/VisitedTabIcon';
+import { useTranslation } from 'react-i18next';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export function TabNavigator() {
   // according to documentation https://unistyl.es/v3/references/use-unistyles/
   const { theme } = useUnistyles();
+  const { t } = useTranslation();
 
   return (
     <Tab.Navigator
@@ -32,12 +34,20 @@ export function TabNavigator() {
       <Tab.Screen
         name="Home"
         component={Home}
-        options={{ headerShown: false, tabBarIcon: HomeTabIcon }}
+        options={{
+          headerShown: false,
+          title: t('tabs.home'),
+          tabBarIcon: HomeTabIcon,
+        }}
       />
       <Tab.Screen
         name="Visited"
         component={Visited}
-        options={{ headerShown: false, tabBarIcon: VisitedTabIcon }}
+        options={{
+          headerShown: false,
+          title: t('tabs.visited'),
+          tabBarIcon: VisitedTabIcon,
+        }}
       />
     </Tab.Navigator>
   );

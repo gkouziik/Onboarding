@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleProp, ViewStyle } from 'react-native';
 
 import Chip from '@/components/Chip';
 import { CONTINENT_TABS } from '@/features/home/constants.ts';
@@ -19,6 +19,10 @@ type Props = {
   onSelect: (tab: ContinentFilter) => void;
 };
 
+const passedStyle: StyleProp<ViewStyle> = {
+  marginBottom: 10,
+};
+
 /**
  * Continent Tabs component that renders a map of chips cards
  * for continent filters wrapped in a ScrollView
@@ -36,6 +40,7 @@ function ContinentTabs({ selected, onSelect }: Props) {
         <Chip
           testID={tab}
           key={tab}
+          passedStyles={passedStyle}
           label={tab}
           selected={tab === selected}
           onPress={() => onSelect(tab)}

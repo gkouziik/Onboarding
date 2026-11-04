@@ -1,27 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import { NavigationContainer } from '@react-navigation/native';
+import i18n from '@/i18n';
+import { LanguageSync } from '@/i18n/LanguageSync';
 import { RootNavigator } from '@/navigation/RootNavigator';
-import { store } from '@/store';
+import { persistor, store } from '@/store';
 
-function App() {
+/** Apply the saved language before the first screen renders (no English flash). */
+const applySavedLanguage = async () => {
+  await i18n.changeLanguage(store.getState().settings.language);
+};
+
+export default function App() {
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <RootNavigator />
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <PersistGate
+        loading={null}
+        persistor={persistor}
+        onBeforeLift={applySavedLanguage}
+      >
+        <LanguageSync />
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <RootNavigator />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </PersistGate>
     </Provider>
   );
 }
-
-export default App;

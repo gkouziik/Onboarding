@@ -1,4 +1,5 @@
 import './src/theme/unistyles';
+import './src/i18n';
 
 jest.mock(
   'react-native-safe-area-context',
@@ -7,6 +8,10 @@ jest.mock(
 
 jest.mock('react-native-worklets', () =>
   require('react-native-worklets/lib/module/mock'),
+);
+
+jest.mock('@react-native-async-storage/async-storage', () =>
+  require('@react-native-async-storage/async-storage/jest'),
 );
 
 jest.mock('react-native-reanimated', () => {

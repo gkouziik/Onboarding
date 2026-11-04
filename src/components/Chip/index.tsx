@@ -1,5 +1,5 @@
-import { memo, useCallback } from 'react';
-import { Pressable, PressableProps } from 'react-native';
+import { memo } from 'react';
+import { Pressable, PressableProps, StyleProp, ViewStyle } from 'react-native';
 
 import { AppText } from '@/components/AppText';
 import { styles } from '@/components/Chip/styles.ts';
@@ -13,20 +13,31 @@ interface Props extends PressableProps {
    * boolean property that denotes if the chip is selected
    */
   selected?: boolean;
+  passedStyles?: StyleProp<ViewStyle>;
 }
 
 /**
  * Rounded pill. Used for the continent tabs (Home) and the bordering
  * countries Detail.
  */
-function Chip({ label, onPress, selected = false, testID }: Props) {
+function Chip({
+  label,
+  onPress,
+  selected = false,
+  testID,
+  passedStyles,
+}: Props) {
   styles.useVariants({ selected });
 
   return (
     <Pressable
       onPress={onPress}
       testID={testID}
-      style={({ pressed }) => [styles.chip, pressed && styles.pressed]}
+      style={({ pressed }) => [
+        styles.chip,
+        pressed && styles.pressed,
+        passedStyles,
+      ]}
     >
       <AppText variant="p2" color={selected ? 'text2' : 'text'}>
         {label}
