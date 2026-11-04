@@ -1,4 +1,4 @@
-import { toCountrySummary } from '@/services/api/countries/mappers.ts';
+import { toCountrySummary } from '@/services/api/countries/utils.ts';
 import {
   antarctica,
   greece,

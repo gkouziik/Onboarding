@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { env } from '@/config/env.ts';
-import { toCountryDetail, toCountrySummary } from './mappers.ts';
+import { toCountryDetail, toCountrySummary } from './utils.ts';
 import type { Country, ListResponse } from './types.ts';
 import { CountryDetail, CountrySummary } from '@/models/countries.ts';
 

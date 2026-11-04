@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
-import { countriesApi } from '@/services/api/countries/countriesApi';
+import { countriesApi } from '@/services/api/countries';
 import { visitedReducer } from '@/store/slices/visited';
 
 const rootReducer = combineReducers({

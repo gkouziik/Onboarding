@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ScrollView } from 'react-native';
 
-import Chip from '@/features/home/components/Chip';
+import Chip from '@/components/Chip';
 import { CONTINENT_TABS } from '@/features/home/constants.ts';
 import { ContinentFilter } from '@/features/home/types.ts';
 import { styles } from '@/features/home/components/ContinentTabs/styles.ts';

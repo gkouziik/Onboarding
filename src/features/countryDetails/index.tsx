@@ -13,7 +13,7 @@ import { ErrorView } from '@/components/ErrorView';
 import { LoadingView } from '@/components/LoadingView';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { RootStackParamList } from '@/navigation/RootNavigator/types.ts';
-import { useGetCountryByCodeQuery } from '@/services/api/countries/countriesApi.ts';
+import { useGetCountryByCodeQuery } from '@/services/api/countries';
 
 import BorderList from './components/BorderList';
 import CountryHero from './components/CountryHero';

@@ -1,7 +1,7 @@
 import {
   toCountryDetail,
   toCountrySummary,
-} from '@/services/api/countries/mappers.ts';
+} from '@/services/api/countries/utils.ts';
 import { antarctica, greece } from '@/services/api/countries/__fixtures__';
 
 describe('toCountrySummary', () => {

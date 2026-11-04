@@ -4,7 +4,7 @@ import { Pressable, View } from 'react-native';
 import { AppText } from '@/components/AppText';
 import { Divider } from '@/components/Divider';
 import InfoRow from '@/components/InfoRow';
-import { Card } from '@/features/home/components/Card';
+import { Card } from '@/components/Card';
 import { styles } from '@/features/home/components/StatsPanel/styles.ts';
 import { CountryStats } from '@/features/home/utils/computeStats.ts';
 import { CONTINENTS } from '@/models/countries.ts';

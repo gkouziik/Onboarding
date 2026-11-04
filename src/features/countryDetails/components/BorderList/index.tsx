@@ -5,11 +5,11 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { AppText } from '@/components/AppText';
 import { RootStackParamList } from '@/navigation/RootNavigator/types.ts';
-import { useGetAllCountriesQuery } from '@/services/api/countries/countriesApi.ts';
+import { useGetAllCountriesQuery } from '@/services/api/countries';
 
 import { styles } from './styles.ts';
-import Chip from '@/features/home/components/Chip';
-import { Card } from '@/features/home/components/Card';
+import Chip from '@/components/Chip';
+import { Card } from '@/components/Card';
 
 type Props = {
   /**

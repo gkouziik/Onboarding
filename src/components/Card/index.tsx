@@ -2,7 +2,7 @@ import React, { type ReactNode } from 'react';
 import { View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { AppText } from '@/components/AppText';
-import { styles } from '@/features/home/components/Card/styles.ts';
+import { styles } from '@/components/Card/styles.ts';
 
 interface Props {
   /**

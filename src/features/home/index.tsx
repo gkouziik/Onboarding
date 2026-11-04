@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 
-import { useGetAllCountriesQuery } from '@/services/api/countries/countriesApi.ts';
+import { useGetAllCountriesQuery } from '@/services/api/countries';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { LoadingView } from '@/components/LoadingView';
 import { ErrorView } from '@/components/ErrorView';
@@ -10,12 +10,18 @@ import CountryList from '@/features/home/components/CountryList';
 import { FlatList } from 'react-native';
 import { CountrySummary } from '@/models/countries.ts';
 import { useFilterCountries } from '@/features/home/hooks/useFilterCountries.ts';
-import { computeStats } from '@/features/home/utils/computeStats.ts';
+import { useComputeStats } from '@/features/home/utils/computeStats.ts';
 import StatsPanel from '@/features/home/components/StatsPanel';
 import SortToggle from '@/features/home/components/SortToggle';
 import Header from '@/features/home/components/Header';
 import { PAGE_SIZE } from '@/features/home/constants.ts';
 import { usePagination } from '@/features/home/hooks/usePagination.ts';
+
+/**
+ * [] === [] false: two different objects
+ * we need to have the same reference
+ */
+const EMPTY_COUNTRIES: CountrySummary[] = [];
 
 export function Home() {
   const { data, isLoading, isError, refetch, isFetching } =
@@ -31,7 +37,7 @@ export function Home() {
     search,
     sortDirection,
   });
-  const stats = useMemo(() => computeStats(data ?? []), [data]);
+  const stats = useComputeStats(data ?? EMPTY_COUNTRIES);
 
   const {
     visibleItems: visibleCountries,

@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Pressable, PressableProps } from 'react-native';
 
 import { AppText } from '@/components/AppText';
-import { styles } from '@/features/home/components/Chip/styles.ts';
+import { styles } from '@/components/Chip/styles.ts';
 
 interface Props extends PressableProps {
   /**

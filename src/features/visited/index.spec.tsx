@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CountrySummary } from '@/models/countries.ts';
-import { toCountrySummary } from '@/services/api/countries/mappers.ts';
+import { toCountrySummary } from '@/services/api/countries/utils.ts';
 import { greece, italy } from '@/services/api/countries/__fixtures__';
 import { selectIsVisited } from '@/store/selectors/visitedSelectors.ts';
 import { fireEvent, renderWithProviders, screen } from '@/test/render.tsx';

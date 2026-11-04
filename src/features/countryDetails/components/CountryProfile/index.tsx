@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import InfoRow from '@/components/InfoRow';
 import { CountryDetail } from '@/models/countries.ts';
-import { Card } from '@/features/home/components/Card';
+import { Card } from '@/components/Card';
 import formatCurrency, { formatCompact } from '@/utils';
 import { styles } from './styles.ts';
 

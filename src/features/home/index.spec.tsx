@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { countriesApi } from '@/services/api/countries/countriesApi.ts';
+import { countriesApi } from '@/services/api/countries';
 import { jsonResponse, listResponse } from '@/test/http.ts';
 import { fireEvent, renderWithProviders, screen } from '@/test/render.tsx';
 
