@@ -1,32 +1,40 @@
 import { StyleSheet } from 'react-native-unistyles';
 
-const BACKDROP_COLOR = 'rgba(0, 0, 0, 0.4)';
-const RADIO_SIZE = 20;
-
 export const styles = StyleSheet.create(theme => ({
-  backdrop: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: theme.spaces.padding['24'],
-    backgroundColor: BACKDROP_COLOR,
+  anchor: {
+    position: 'relative',
+    zIndex: 10,
   },
-  sheet: {
-    gap: theme.spaces.gap['8'],
-    padding: theme.spaces.padding['16'],
-    borderRadius: theme.sizes.radius['24'],
+  dropdown: {
+    position: 'absolute',
+    top: '100%',
+    right: 0,
+    marginTop: 4,
+    minWidth: 160,
+    paddingVertical: 4,
+    borderRadius: 8,
     backgroundColor: theme.colors.surface,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: theme.colors.border,
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 6,
   },
   option: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: theme.spaces.gap['12'],
+    gap: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
   },
   radio: {
-    width: RADIO_SIZE,
-    height: RADIO_SIZE,
-    borderRadius: RADIO_SIZE / 2,
+    width: 16,
+    height: 16,
+    borderRadius: 8,
     borderWidth: 2,
-    borderColor: theme.colors.text2,
+    borderColor: theme.colors.border,
   },
   radioSelected: {
     borderColor: theme.colors.border,
