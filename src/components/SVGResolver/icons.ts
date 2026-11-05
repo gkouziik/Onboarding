@@ -7,6 +7,7 @@ import Close from '@/assets/svgs/close.svg';
 import Search from '@/assets/svgs/search.svg';
 import Palette from '@/assets/svgs/palette.svg';
 import HeartOutline from '@/assets/svgs/heart-outline.svg';
+import Lock from '@/assets/svgs/lock.svg';
 
 export const icons = {
   home: Home,
@@ -18,4 +19,5 @@ export const icons = {
   search: Search,
   palette: Palette,
   heartOutline: HeartOutline,
+  lock: Lock,
 } as const;

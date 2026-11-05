@@ -6,6 +6,10 @@ export const en = {
     home: 'Home',
     visited: 'Visited',
   },
+  pin: {
+    selectPin: 'Διαλέξτε ένα Pin',
+    confirmPin: 'Επιβεβαιώστε το Pin',
+  },
 };
 
 export type Translations = typeof en;

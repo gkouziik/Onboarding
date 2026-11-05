@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useUnistyles } from 'react-native-unistyles';
 
 import { TabParamList } from '@/navigation/RootNavigator/types.ts';
-import { Home } from '@/features/home';
-import { Visited } from '@/features/visited';
+import { Home } from '@/screens/Home';
+import { Visited } from '@/screens/Visited';
 import { HomeTabIcon } from '@/navigation/BottomTabsNavigator/components/TabBarIcons/HomeTabIcon';
 import { VisitedTabIcon } from '@/navigation/BottomTabsNavigator/components/TabBarIcons/VisitedTabIcon';
 import { useTranslation } from 'react-i18next';

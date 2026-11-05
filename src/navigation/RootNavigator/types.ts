@@ -8,6 +8,7 @@ export type TabParamList = {
 export type RootStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
   CountryDetail: { code: string };
+  Pin: undefined;
 };
 
 declare global {

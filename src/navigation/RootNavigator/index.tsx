@@ -2,8 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useUnistyles } from 'react-native-unistyles';
 
 import { RootStackParamList } from '@/navigation/RootNavigator/types.ts';
-import { CountryDetails } from '@/features/countryDetails';
+import { CountryDetails } from '@/screens/CountryDetails';
 import { TabNavigator } from '@/navigation/BottomTabsNavigator';
+import { PinRoute } from '@/screens/Pin';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -26,6 +27,11 @@ export function RootNavigator() {
         name="CountryDetail"
         component={CountryDetails}
         options={{ headerShown: true, headerBackTitle: 'Back', title: '' }}
+      />
+      <Stack.Screen
+        name="Pin"
+        component={PinRoute}
+        options={{ presentation: 'modal' }}
       />
     </Stack.Navigator>
   );

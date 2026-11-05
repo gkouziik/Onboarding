@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 
 import i18n from '@/i18n';
 import { LanguageSync } from '@/i18n/LanguageSync';
-import { selectLanguage } from '@/store/selectors/settingsSelectors.ts';
+import { selectLanguage } from '@/store/settings/selectors/settingsSelectors.ts';
 import { fireEvent, renderWithProviders, screen } from '@/test/render.tsx';
 import LanguageToggle from '@/components/LanguageToggle/index.tsx';
 

@@ -8,4 +8,8 @@ export const el: Translations = {
     home: 'Αρχική',
     visited: 'Επισκέψεις',
   },
+  pin: {
+    selectPin: 'Choose a PIN',
+    confirmPin: 'Confirm your PIN',
+  },
 };

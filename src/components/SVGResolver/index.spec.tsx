@@ -6,7 +6,7 @@ import { SvgResolver } from '@/components/SVGResolver/index.tsx';
 describe('SVGResolver', () => {
   it('uses a numeric size for width and height', async () => {
     await render(<SvgResolver name="home" size={32} />);
-    const icon = screen.getByTestId('icon-home');
+    const icon = screen.getByTestId('icon-Home');
 
     expect(icon).toHaveProp('width', 32);
     expect(icon).toHaveProp('height', 32);

@@ -9,6 +9,7 @@ import i18n from '@/i18n';
 import { LanguageSync } from '@/i18n/LanguageSync';
 import { RootNavigator } from '@/navigation/RootNavigator';
 import { persistor, store } from '@/store';
+import { AppLockGate } from '@/components/AppLockGate';
 
 /** Apply the saved language before the first screen renders (no English flash). */
 const applySavedLanguage = async () => {
@@ -26,9 +27,11 @@ export default function App() {
         >
           <LanguageSync />
           <SafeAreaProvider>
-            <NavigationContainer>
-              <RootNavigator />
-            </NavigationContainer>
+            <AppLockGate>
+              <NavigationContainer>
+                <RootNavigator />
+              </NavigationContainer>
+            </AppLockGate>
           </SafeAreaProvider>
         </PersistGate>
       </Provider>

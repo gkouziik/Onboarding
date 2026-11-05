@@ -11,7 +11,7 @@ export type Continent = (typeof CONTINENTS)[number];
 
 /**
  * Light model for lists,
- * stats and the visited slice.
+ * stats and the Visited slice.
  */
 export type CountrySummary = {
   code: string;

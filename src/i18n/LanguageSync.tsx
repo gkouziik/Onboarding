@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import i18n from '@/i18n';
 import { useAppSelector } from '@/store/hooks.ts';
-import { selectLanguage } from '@/store/selectors/settingsSelectors.ts';
+import { selectLanguage } from '@/store/settings/selectors/settingsSelectors.ts';
 
 /**
  * Applies the stored language to i18next whenever it changes.

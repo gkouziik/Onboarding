@@ -4,8 +4,8 @@ import { View } from 'react-native';
 import Chip from '@/components/Chip';
 import type { Language } from '@/i18n';
 import { useAppDispatch, useAppSelector } from '@/store/hooks.ts';
-import { selectLanguage } from '@/store/selectors/settingsSelectors.ts';
-import { setLanguage } from '@/store/slices/settings';
+import { selectLanguage } from '@/store/settings/selectors/settingsSelectors.ts';
+import { setLanguage } from '@/store/settings/slices';
 
 import { styles } from './styles.ts';
 
