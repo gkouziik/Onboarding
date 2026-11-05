@@ -12,7 +12,8 @@ export const darkColors = {
   text: primitiveColor.text3,
   text2: primitiveColor.text6,
   textMuted: primitiveColor.textMuted3,
-
+  danger: primitiveColor.brand1,
+  onDanger: primitiveColor.onDanger,
   brand: primitiveColor.brand3,
   brandSubtle: primitiveColor.brandSubtle3,
 } as const;

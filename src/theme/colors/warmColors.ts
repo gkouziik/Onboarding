@@ -12,7 +12,8 @@ export const warmColors = {
   text: primitiveColor.text1,
   text2: primitiveColor.text4,
   textMuted: primitiveColor.textMuted1,
-
+  danger: primitiveColor.brand1,
+  onDanger: primitiveColor.onDanger,
   brand: primitiveColor.brand1,
   brandSubtle: primitiveColor.brandSubtle1,
 } as const;

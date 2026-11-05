@@ -13,7 +13,8 @@ export const coolColors = {
   text: primitiveColor.text2,
   text2: primitiveColor.text5,
   textMuted: primitiveColor.textMuted2,
-
+  danger: primitiveColor.brand1,
+  onDanger: primitiveColor.onDanger,
   brand: primitiveColor.brand2,
   brandSubtle: primitiveColor.brandSubtle2,
 } as const;

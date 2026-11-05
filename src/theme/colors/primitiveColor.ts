@@ -30,7 +30,7 @@ export const primitiveColor = {
   textMuted1: '#9a8878',
   textMuted2: '#7a8ba0',
   textMuted3: '#4a5870',
-
+  onDanger: '#FFFFFF',
   brand1: '#c4502a',
   brand2: '#2563eb',
   brand3: '#5b8def',
@@ -38,4 +38,4 @@ export const primitiveColor = {
   brandSubtle1: '#f5eae4',
   brandSubtle2: '#eef3ff',
   brandSubtle3: '#1a2540',
-}
+};
